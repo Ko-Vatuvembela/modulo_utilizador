@@ -1,4 +1,5 @@
-# utilizador
+# Módulo do utilizador
+
 Este é o módulo do utilizador. Ele disponibiliza serviços relacionados ao utilizador do sistema, tais como:
  * Acesso do utilizador
    * Criação da conta
