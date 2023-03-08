@@ -48,19 +48,19 @@ model Significado {
 }
 
 model Proverbio {
-    id         String   @id @default(auto()) @map("_id") @db.ObjectId
-    lingua     String   @db.ObjectId
-    autor      String   @db.ObjectId
-    explicacao String
-    proverbio  String
-    data       DateTime
+    id            String   @id @default(auto()) @map("_id") @db.ObjectId
+    lingua        String   @db.ObjectId
+    autor         String   @db.ObjectId
+    interpretacao String
+    proverbio     String
+    data          DateTime
 }
 
 model Poema {
-    id         String   @id @default(auto()) @map("_id") @db.ObjectId
-    lingua     String   @db.ObjectId
-    autor      String   @db.ObjectId
-    poema      String
-    explicacao String
-    data       DateTime
+    id            String   @id @default(auto()) @map("_id") @db.ObjectId
+    lingua        String   @db.ObjectId
+    autor         String   @db.ObjectId
+    poema         String
+    interpretacao String
+    data          DateTime
 }
