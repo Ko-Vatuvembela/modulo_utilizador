@@ -1,0 +1,66 @@
+datasource db {
+    url      = env("DATABASE_URL")
+    provider = "mongodb"
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model Utilizador {
+    id            String   @id @default(auto()) @map("_id") @db.ObjectId
+    lista_linguas String[]
+    nome          String
+    email         String   @unique
+    senha         String
+    foto          String
+}
+
+model Lingua {
+    id     String @id @default(auto()) @map("_id") @db.ObjectId
+    lingua String @unique
+}
+
+model Gramatica {
+    id                String   @id @default(auto()) @map("_id") @db.ObjectId
+    lingua            String
+    autor             String
+    classe_gramatical String
+    titulo            String
+    conteudo          String
+    data              DateTime
+}
+
+model Palavra {
+    id                 String   @id @default(auto()) @map("_id") @db.ObjectId
+    lingua             String
+    lista_significados String[]
+    palavra            String
+    pronuncia          String
+}
+
+model Significado {
+    id          String @id @default(auto()) @map("_id") @db.ObjectId
+    lingua      String
+    significado String
+    palavra     String
+    pronuncia   String
+}
+
+model Proverbio {
+    id         String   @id @default(auto()) @map("_id") @db.ObjectId
+    lingua     String   @db.ObjectId
+    autor      String   @db.ObjectId
+    explicacao String
+    proverbio  String
+    data       DateTime
+}
+
+model Poema {
+    id         String   @id @default(auto()) @map("_id") @db.ObjectId
+    lingua     String   @db.ObjectId
+    autor      String   @db.ObjectId
+    poema      String
+    explicacao String
+    data       DateTime
+}
