@@ -9,6 +9,11 @@ export type Utilizador = {
 };
 
 export type JSONResponse = {
-	codigo: number;
-	mensagem: string | object;
+	codigo: 200 | 201 | 202 | 400 | 401 | 404 | 500 | 503;
+	mensagem:
+		| object
+		| 'Não encontrado'
+		| 'Erro interno no servidor'
+		| 'Não autorizado'
+		| 'Serviço não disponível';
 };
