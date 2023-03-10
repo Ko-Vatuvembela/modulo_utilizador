@@ -9,7 +9,7 @@ generator client {
 
 model Utilizador {
     id            String   @id @default(auto()) @map("_id") @db.ObjectId
-    lista_linguas String[]
+    lista_linguas String[] @db.ObjectId
     nome          String
     email         String   @unique
     senha         String
@@ -23,9 +23,9 @@ model Lingua {
 
 model Gramatica {
     id                String   @id @default(auto()) @map("_id") @db.ObjectId
-    lingua            String
-    autor             String
-    classe_gramatical String
+    lingua            String   @db.ObjectId
+    autor             String   @db.ObjectId
+    classe_gramatical String   @db.ObjectId
     titulo            String
     conteudo          String
     data              DateTime
@@ -33,15 +33,15 @@ model Gramatica {
 
 model Palavra {
     id                 String   @id @default(auto()) @map("_id") @db.ObjectId
-    lingua             String
-    lista_significados String[]
+    lingua             String   @db.ObjectId
+    lista_significados String[] @db.ObjectId
     palavra            String
     pronuncia          String
 }
 
 model Significado {
     id          String @id @default(auto()) @map("_id") @db.ObjectId
-    lingua      String
+    lingua      String @db.ObjectId
     significado String
     palavra     String
     pronuncia   String
